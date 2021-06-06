@@ -1,0 +1,42 @@
+{
+  "name": "@rewired/telnyx-10dlc",
+  "version": "1.0.0",
+  "description": "TypeScript client for Telnyx 10DLC API.",
+  "keywords": [
+    "telnyx",
+    "10dlc"
+  ],
+  "homepage": "https://github.com/politics-rewired/telnyx-10dlc#readme",
+  "bugs": {
+    "url": "https://github.com/politics-rewired/telnyx-10dlc/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/politics-rewired/telnyx-10dlc.git"
+  },
+  "license": "MIT",
+  "author": "Benjamin Chrobot <benjamin.chrobot@alum.mit.edu>",
+  "main": "./dist/index",
+  "typings": "./dist/",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "generate": "ts-node scripts/generate-api.ts",
+    "build": "tsc",
+    "release": "standard-version",
+    "prepack": "yarn rimraf dist/ && yarn build"
+  },
+  "dependencies": {
+    "form-data": "^4.0.0",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "@types/node-fetch": "^2.5.10",
+    "openapi-typescript-codegen": "^0.9.3",
+    "rimraf": "^3.0.2",
+    "standard-version": "^9.3.0",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.2"
+  }
+}
