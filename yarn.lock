@@ -80,6 +80,19 @@
   resolved "https://registry.yarnpkg.com/@types/normalize-package-data/-/normalize-package-data-2.4.0.tgz#e486d0d97396d79beedd0a6e33f4534ff6b4973e"
   integrity sha512-f5j5b/Gf71L+dbqxIpQ4Z2WlmI/mPJ0fOkGGmFgtb6sAu97EPczzbS3/tJKxmcYDj55OX6ssqwDAWOHIYDRDGA==
 
+"@yottaltd/openapi-typescript-codegen@^1.0.3":
+  version "1.0.3"
+  resolved "https://npm.pkg.github.com/download/@yottaltd/openapi-typescript-codegen/1.0.3/4b69b950210650124374c7eb0d6f646065e5cb97ee178670df057845ea9cbd84#14550a86dce842e0c61b95bfccc2a6a8e1cb81f2"
+  integrity sha512-7JAB+ePsh79o25oLavyfb+FWgXGZYExYUdgliwbLH0Yta4W2XinSng0wHPvuINaxyroeII8EDGKmOBxaYqnXwQ==
+  dependencies:
+    camelcase "^6.2.0"
+    commander "^7.0.0"
+    handlebars "^4.7.6"
+    js-yaml "^4.0.0"
+    json-schema-ref-parser "^9.0.7"
+    mkdirp "^1.0.4"
+    rimraf "^3.0.2"
+
 JSONStream@^1.0.4:
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/JSONStream/-/JSONStream-1.3.5.tgz#3208c1f08d3a4d99261ab64f92302bc15e111ca0"

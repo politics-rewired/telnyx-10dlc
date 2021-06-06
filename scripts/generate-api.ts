@@ -1,4 +1,4 @@
-import * as OpenAPI from "openapi-typescript-codegen";
+import * as OpenAPI from "@yottaltd/openapi-typescript-codegen";
 
 // Fetched 2021-06-06
 const input =
