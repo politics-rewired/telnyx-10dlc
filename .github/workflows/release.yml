@@ -1,32 +1,32 @@
 name: Release
 
-on:
-  push:
-    tags:
-      - "v*"
+# on:
+#   push:
+#     tags:
+#       - "v*"
 
 jobs:
-  cut-gh-release:
-    runs-on: ubuntu-latest
-    env:
-      BODY_PATH: release-body.txt
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Set output
-        id: vars
-        run: echo ::set-output name=tag::${GITHUB_REF#refs/tags/} && echo ::set-output name=version::${GITHUB_REF#refs/tags/v}
-      - name: Generate Changelog
-        run: awk "/[#]{2,3} \[${{ steps.vars.outputs.version }}/{flag=1; next} /[#]{2,3} \[/{flag=0} flag" CHANGELOG.md >> $BODY_PATH
-      - name: Release
-        uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/v')
-        with:
-          name: Version ${{ steps.vars.outputs.version }}
-          tag_name: ${{ steps.vars.outputs.tag }}
-          body_path: ${{ env.BODY_PATH }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  # cut-gh-release:
+  #   runs-on: ubuntu-latest
+  #   env:
+  #     BODY_PATH: release-body.txt
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
+  #     - name: Set output
+  #       id: vars
+  #       run: echo ::set-output name=tag::${GITHUB_REF#refs/tags/} && echo ::set-output name=version::${GITHUB_REF#refs/tags/v}
+  #     - name: Generate Changelog
+  #       run: awk "/[#]{2,3} \[${{ steps.vars.outputs.version }}/{flag=1; next} /[#]{2,3} \[/{flag=0} flag" CHANGELOG.md >> $BODY_PATH
+  #     - name: Release
+  #       uses: softprops/action-gh-release@v1
+  #       if: startsWith(github.ref, 'refs/tags/v')
+  #       with:
+  #         name: Version ${{ steps.vars.outputs.version }}
+  #         tag_name: ${{ steps.vars.outputs.tag }}
+  #         body_path: ${{ env.BODY_PATH }}
+  #       env:
+  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   deploy-npm-release:
     runs-on: ubuntu-latest
@@ -45,9 +45,10 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
-      - run: yarn install
+      - run: |
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_REPOSITORY_ACCESS_TOKEN }}" >> .npmrc && yarn install
       - run: yarn build
-      - uses: JS-DevTools/npm-publish@v1
-        with:
-          access: public
-          token: ${{ secrets.NPM_AUTOMATION_TOKEN }}
+      # - uses: JS-DevTools/npm-publish@v1
+      #   with:
+      #     access: public
+      #     token: ${{ secrets.NPM_AUTOMATION_TOKEN }}
