@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.1](https://github.com/politics-rewired/telnyx-10dlc/compare/v1.0.0...v1.0.1) (2021-06-06)
+
+
+### Bug Fixes
+
+* fix import ([1e791ab](https://github.com/politics-rewired/telnyx-10dlc/commit/1e791ab0c2859d401c03260b7d9f7f30846a20c2))
+
 ## 1.0.0 (2021-06-06)
 
 
