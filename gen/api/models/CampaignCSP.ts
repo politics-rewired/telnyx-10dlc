@@ -1,6 +1,5 @@
-/* istanbul ignore file */
-/* tslint:disable */
 /* eslint-disable */
+
 
 import type { Status } from './Status';
 
@@ -114,4 +113,14 @@ export type CampaignCSP = {
      * Help message of the campaign.
      */
     helpMessage?: string;
+}
+
+export namespace CampaignCSP {
+
+    /**
+     * the discriminator for the model if required for more complex api's
+     */
+    export const discriminator = 'CampaignCSP';
+
+
 }

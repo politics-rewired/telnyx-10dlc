@@ -1,6 +1,5 @@
-/* istanbul ignore file */
-/* tslint:disable */
 /* eslint-disable */
+
 
 export type PhoneNumberCampaignCreate = {
     /**
@@ -11,4 +10,14 @@ export type PhoneNumberCampaignCreate = {
      * The ID of the campaign you want to link to the specified phone number.
      */
     campaignId: string;
+}
+
+export namespace PhoneNumberCampaignCreate {
+
+    /**
+     * the discriminator for the model if required for more complex api's
+     */
+    export const discriminator = 'PhoneNumberCampaignCreate';
+
+
 }

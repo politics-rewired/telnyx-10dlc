@@ -1,28 +1,28 @@
-/* istanbul ignore file */
-/* tslint:disable */
 /* eslint-disable */
+
 import type { Dca } from '../models/Dca';
 import type { ExtVettingProvider } from '../models/ExtVettingProvider';
 import type { Mno } from '../models/Mno';
 import type { PublicCompanyRecordSet } from '../models/PublicCompanyRecordSet';
 import type { VettingClass } from '../models/VettingClass';
-import { request as __request } from '../core/request';
+import type { ApiRequestOptions } from '../core/ApiRequestOptions';
 
-export class EnumService {
+export interface EnumService {
 
     /**
      * Get Alt Business Id Type
      * Get Alternative Business ID types
      * @returns string Successful Response
-     * @throws ApiError
      */
-    public static async getAltBusinessIdTypeEnumAltBusinessIdTypeGet(): Promise<string> {
-        const result = await __request({
-            method: 'GET',
-            path: `/enum/altBusinessIdType`,
-        });
-        return result.body;
-    }
+    getAltBusinessIdTypeEnumAltBusinessIdTypeGet(): Promise<string>;
+
+    /**
+     * **used to get the request options without making a http request**
+     * Get Alt Business Id Type
+     * Get Alternative Business ID types
+     * @returns ApiRequestOptions the request options to fulfill a http request
+     */
+    getAltBusinessIdTypeEnumAltBusinessIdTypeGetApiRequestOptions(): ApiRequestOptions;
 
     /**
      * List Public Company
@@ -34,203 +34,221 @@ export class EnumService {
      * @param page
      * @param recordsPerPage
      * @returns PublicCompanyRecordSet Successful Response
-     * @throws ApiError
      */
-    public static async listPublicCompanyEnumApprovedPublicCompanyGet(
+    listPublicCompanyEnumApprovedPublicCompanyGet(
         displayName?: string,
         symbol?: string,
         exchange?: string,
         country?: string,
         page: number = 1,
         recordsPerPage: number = 10,
-    ): Promise<PublicCompanyRecordSet> {
-        const result = await __request({
-            method: 'GET',
-            path: `/enum/approvedPublicCompany`,
-            query: {
-                'displayName': displayName,
-                'symbol': symbol,
-                'exchange': exchange,
-                'country': country,
-                'page': page,
-                'recordsPerPage': recordsPerPage,
-            },
-        });
-        return result.body;
-    }
+    ): Promise<PublicCompanyRecordSet>;
+
+    /**
+     * **used to get the request options without making a http request**
+     * List Public Company
+     * List all TCR approved public companies for use as a Brand
+     * @param displayName
+     * @param symbol
+     * @param exchange
+     * @param country
+     * @param page
+     * @param recordsPerPage
+     * @returns ApiRequestOptions the request options to fulfill a http request
+     */
+    listPublicCompanyEnumApprovedPublicCompanyGetApiRequestOptions(
+        displayName?: string,
+        symbol?: string,
+        exchange?: string,
+        country?: string,
+        page: number = 1,
+        recordsPerPage: number = 10,
+    ): ApiRequestOptions;
 
     /**
      * Get Brand Relationship
      * Get Brand Relationship types
      * @returns string Successful Response
-     * @throws ApiError
      */
-    public static async getBrandRelationshipEnumBrandRelationshipGet(): Promise<string> {
-        const result = await __request({
-            method: 'GET',
-            path: `/enum/brandRelationship`,
-        });
-        return result.body;
-    }
+    getBrandRelationshipEnumBrandRelationshipGet(): Promise<string>;
+
+    /**
+     * **used to get the request options without making a http request**
+     * Get Brand Relationship
+     * Get Brand Relationship types
+     * @returns ApiRequestOptions the request options to fulfill a http request
+     */
+    getBrandRelationshipEnumBrandRelationshipGetApiRequestOptions(): ApiRequestOptions;
 
     /**
      * Get Campaign Status Type
      * Get Campaign status types
      * @returns string Successful Response
-     * @throws ApiError
      */
-    public static async getCampaignStatusTypeEnumCampaignStatusGet(): Promise<string> {
-        const result = await __request({
-            method: 'GET',
-            path: `/enum/campaignStatus`,
-        });
-        return result.body;
-    }
+    getCampaignStatusTypeEnumCampaignStatusGet(): Promise<string>;
+
+    /**
+     * **used to get the request options without making a http request**
+     * Get Campaign Status Type
+     * Get Campaign status types
+     * @returns ApiRequestOptions the request options to fulfill a http request
+     */
+    getCampaignStatusTypeEnumCampaignStatusGetApiRequestOptions(): ApiRequestOptions;
 
     /**
      * List Connectivity Partners
      * List connectivity partners
      * @returns string Successful Response
-     * @throws ApiError
      */
-    public static async listConnectivityPartnersEnumCnpGet(): Promise<string> {
-        const result = await __request({
-            method: 'GET',
-            path: `/enum/cnp`,
-        });
-        return result.body;
-    }
+    listConnectivityPartnersEnumCnpGet(): Promise<string>;
+
+    /**
+     * **used to get the request options without making a http request**
+     * List Connectivity Partners
+     * List connectivity partners
+     * @returns ApiRequestOptions the request options to fulfill a http request
+     */
+    listConnectivityPartnersEnumCnpGetApiRequestOptions(): ApiRequestOptions;
 
     /**
      * Get All Dcas
      * List all DCAs
      * @returns Dca Successful Response
-     * @throws ApiError
      */
-    public static async getAllDcasEnumDcaGet(): Promise<Array<Dca>> {
-        const result = await __request({
-            method: 'GET',
-            path: `/enum/dca`,
-        });
-        return result.body;
-    }
+    getAllDcasEnumDcaGet(): Promise<Array<Dca>>;
+
+    /**
+     * **used to get the request options without making a http request**
+     * Get All Dcas
+     * List all DCAs
+     * @returns ApiRequestOptions the request options to fulfill a http request
+     */
+    getAllDcasEnumDcaGetApiRequestOptions(): ApiRequestOptions;
 
     /**
      * Get Entity Type
      * Get Entity types
      * @returns string Successful Response
-     * @throws ApiError
      */
-    public static async getEntityTypeEnumEntityTypeGet(): Promise<string> {
-        const result = await __request({
-            method: 'GET',
-            path: `/enum/entityType`,
-        });
-        return result.body;
-    }
+    getEntityTypeEnumEntityTypeGet(): Promise<string>;
+
+    /**
+     * **used to get the request options without making a http request**
+     * Get Entity Type
+     * Get Entity types
+     * @returns ApiRequestOptions the request options to fulfill a http request
+     */
+    getEntityTypeEnumEntityTypeGetApiRequestOptions(): ApiRequestOptions;
 
     /**
      * Get Vetting Providers
      * Get External vetting providers
      * @returns ExtVettingProvider Successful Response
-     * @throws ApiError
      */
-    public static async getVettingProvidersEnumExtVettingProviderGet(): Promise<Array<ExtVettingProvider>> {
-        const result = await __request({
-            method: 'GET',
-            path: `/enum/extVettingProvider`,
-        });
-        return result.body;
-    }
+    getVettingProvidersEnumExtVettingProviderGet(): Promise<Array<ExtVettingProvider>>;
+
+    /**
+     * **used to get the request options without making a http request**
+     * Get Vetting Providers
+     * Get External vetting providers
+     * @returns ApiRequestOptions the request options to fulfill a http request
+     */
+    getVettingProvidersEnumExtVettingProviderGetApiRequestOptions(): ApiRequestOptions;
 
     /**
      * Get All Mnos
      * List all MNOs
      * @returns Mno Successful Response
-     * @throws ApiError
      */
-    public static async getAllMnosEnumMnoGet(): Promise<Array<Mno>> {
-        const result = await __request({
-            method: 'GET',
-            path: `/enum/mno`,
-        });
-        return result.body;
-    }
+    getAllMnosEnumMnoGet(): Promise<Array<Mno>>;
+
+    /**
+     * **used to get the request options without making a http request**
+     * Get All Mnos
+     * List all MNOs
+     * @returns ApiRequestOptions the request options to fulfill a http request
+     */
+    getAllMnosEnumMnoGetApiRequestOptions(): ApiRequestOptions;
 
     /**
      * List Mno Operation Status
      * List all MNO campaign operation statuses
      * @returns string Successful Response
-     * @throws ApiError
      */
-    public static async listMnoOperationStatusEnumOperationStatusGet(): Promise<string> {
-        const result = await __request({
-            method: 'GET',
-            path: `/enum/operationStatus`,
-        });
-        return result.body;
-    }
+    listMnoOperationStatusEnumOperationStatusGet(): Promise<string>;
+
+    /**
+     * **used to get the request options without making a http request**
+     * List Mno Operation Status
+     * List all MNO campaign operation statuses
+     * @returns ApiRequestOptions the request options to fulfill a http request
+     */
+    listMnoOperationStatusEnumOperationStatusGetApiRequestOptions(): ApiRequestOptions;
 
     /**
      * List Stock Exchanges
      * List all stock exchanges
      * @returns string Successful Response
-     * @throws ApiError
      */
-    public static async listStockExchangesEnumStockExchangeGet(): Promise<Array<string>> {
-        const result = await __request({
-            method: 'GET',
-            path: `/enum/stockExchange`,
-        });
-        return result.body;
-    }
+    listStockExchangesEnumStockExchangeGet(): Promise<Array<string>>;
+
+    /**
+     * **used to get the request options without making a http request**
+     * List Stock Exchanges
+     * List all stock exchanges
+     * @returns ApiRequestOptions the request options to fulfill a http request
+     */
+    listStockExchangesEnumStockExchangeGetApiRequestOptions(): ApiRequestOptions;
 
     /**
      * Get All Usecases
      * List all use-cases
      * @param validSubUsecase
      * @returns any Successful Response
-     * @throws ApiError
      */
-    public static async getAllUsecasesEnumUsecaseGet(
+    getAllUsecasesEnumUsecaseGet(
         validSubUsecase?: boolean,
-    ): Promise<any> {
-        const result = await __request({
-            method: 'GET',
-            path: `/enum/usecase`,
-            query: {
-                'validSubUsecase': validSubUsecase,
-            },
-        });
-        return result.body;
-    }
+    ): Promise<any>;
+
+    /**
+     * **used to get the request options without making a http request**
+     * Get All Usecases
+     * List all use-cases
+     * @param validSubUsecase
+     * @returns ApiRequestOptions the request options to fulfill a http request
+     */
+    getAllUsecasesEnumUsecaseGetApiRequestOptions(
+        validSubUsecase?: boolean,
+    ): ApiRequestOptions;
 
     /**
      * Get All Verticals
      * List all verticals
      * @returns any Successful Response
-     * @throws ApiError
      */
-    public static async getAllVerticalsEnumVerticalGet(): Promise<any> {
-        const result = await __request({
-            method: 'GET',
-            path: `/enum/vertical`,
-        });
-        return result.body;
-    }
+    getAllVerticalsEnumVerticalGet(): Promise<any>;
+
+    /**
+     * **used to get the request options without making a http request**
+     * Get All Verticals
+     * List all verticals
+     * @returns ApiRequestOptions the request options to fulfill a http request
+     */
+    getAllVerticalsEnumVerticalGetApiRequestOptions(): ApiRequestOptions;
 
     /**
      * List Vetting Class
      * List all vetting classes
      * @returns VettingClass Successful Response
-     * @throws ApiError
      */
-    public static async listVettingClassEnumVettingClassGet(): Promise<Array<VettingClass>> {
-        const result = await __request({
-            method: 'GET',
-            path: `/enum/vettingClass`,
-        });
-        return result.body;
-    }
+    listVettingClassEnumVettingClassGet(): Promise<Array<VettingClass>>;
+
+    /**
+     * **used to get the request options without making a http request**
+     * List Vetting Class
+     * List all vetting classes
+     * @returns ApiRequestOptions the request options to fulfill a http request
+     */
+    listVettingClassEnumVettingClassGetApiRequestOptions(): ApiRequestOptions;
 
 }

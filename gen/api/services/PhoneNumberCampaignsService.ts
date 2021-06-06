@@ -1,102 +1,114 @@
-/* istanbul ignore file */
-/* tslint:disable */
 /* eslint-disable */
+
 import type { PhoneNumberCampaign } from '../models/PhoneNumberCampaign';
 import type { PhoneNumberCampaignCreate } from '../models/PhoneNumberCampaignCreate';
 import type { PhoneNumberCampaignPaginated } from '../models/PhoneNumberCampaignPaginated';
 import type { PhoneNumberCampaignUpdate } from '../models/PhoneNumberCampaignUpdate';
-import { request as __request } from '../core/request';
+import type { ApiRequestOptions } from '../core/ApiRequestOptions';
 
-export class PhoneNumberCampaignsService {
+export interface PhoneNumberCampaignsService {
 
     /**
      * Retrieve All Phone Number Campaigns
      * @param recordsPerPage
      * @param page
      * @returns PhoneNumberCampaignPaginated Successful Response
-     * @throws ApiError
      */
-    public static async retrieveAllPhoneNumberCampaignsPublicPhoneNumberCampaignGet(
+    retrieveAllPhoneNumberCampaignsPublicPhoneNumberCampaignGet(
         recordsPerPage: any,
         page: any,
-    ): Promise<PhoneNumberCampaignPaginated> {
-        const result = await __request({
-            method: 'GET',
-            path: `/phoneNumberCampaign`,
-            query: {
-                'recordsPerPage': recordsPerPage,
-                'page': page,
-            },
-        });
-        return result.body;
-    }
+    ): Promise<PhoneNumberCampaignPaginated>;
+
+    /**
+     * **used to get the request options without making a http request**
+     * Retrieve All Phone Number Campaigns
+     * @param recordsPerPage
+     * @param page
+     * @returns ApiRequestOptions the request options to fulfill a http request
+     */
+    retrieveAllPhoneNumberCampaignsPublicPhoneNumberCampaignGetApiRequestOptions(
+        recordsPerPage: any,
+        page: any,
+    ): ApiRequestOptions;
 
     /**
      * Create New Phone Number Campaign
      * @param requestBody
      * @returns PhoneNumberCampaign Successful Response
-     * @throws ApiError
      */
-    public static async createNewPhoneNumberCampaignPublicPhoneNumberCampaignPost(
+    createNewPhoneNumberCampaignPublicPhoneNumberCampaignPost(
         requestBody: PhoneNumberCampaignCreate,
-    ): Promise<PhoneNumberCampaign> {
-        const result = await __request({
-            method: 'POST',
-            path: `/phoneNumberCampaign`,
-            body: requestBody,
-        });
-        return result.body;
-    }
+    ): Promise<PhoneNumberCampaign>;
+
+    /**
+     * **used to get the request options without making a http request**
+     * Create New Phone Number Campaign
+     * @param requestBody
+     * @returns ApiRequestOptions the request options to fulfill a http request
+     */
+    createNewPhoneNumberCampaignPublicPhoneNumberCampaignPostApiRequestOptions(
+        requestBody: PhoneNumberCampaignCreate,
+    ): ApiRequestOptions;
 
     /**
      * Get Single Phone Number Campaign
      * @param phoneNumber
      * @returns PhoneNumberCampaign Successful Response
-     * @throws ApiError
      */
-    public static async getSinglePhoneNumberCampaignPublicPhoneNumberCampaignPhoneNumberGet(
+    getSinglePhoneNumberCampaignPublicPhoneNumberCampaignPhoneNumberGet(
         phoneNumber: string,
-    ): Promise<PhoneNumberCampaign> {
-        const result = await __request({
-            method: 'GET',
-            path: `/phoneNumberCampaign/${phoneNumber}`,
-        });
-        return result.body;
-    }
+    ): Promise<PhoneNumberCampaign>;
+
+    /**
+     * **used to get the request options without making a http request**
+     * Get Single Phone Number Campaign
+     * @param phoneNumber
+     * @returns ApiRequestOptions the request options to fulfill a http request
+     */
+    getSinglePhoneNumberCampaignPublicPhoneNumberCampaignPhoneNumberGetApiRequestOptions(
+        phoneNumber: string,
+    ): ApiRequestOptions;
 
     /**
      * Update Phone Number Campaign
      * @param phoneNumber
      * @param requestBody
      * @returns PhoneNumberCampaign Successful Response
-     * @throws ApiError
      */
-    public static async updatePhoneNumberCampaignPublicPhoneNumberCampaignPhoneNumberPut(
+    updatePhoneNumberCampaignPublicPhoneNumberCampaignPhoneNumberPut(
         phoneNumber: string,
         requestBody: PhoneNumberCampaignUpdate,
-    ): Promise<PhoneNumberCampaign> {
-        const result = await __request({
-            method: 'PUT',
-            path: `/phoneNumberCampaign/${phoneNumber}`,
-            body: requestBody,
-        });
-        return result.body;
-    }
+    ): Promise<PhoneNumberCampaign>;
+
+    /**
+     * **used to get the request options without making a http request**
+     * Update Phone Number Campaign
+     * @param phoneNumber
+     * @param requestBody
+     * @returns ApiRequestOptions the request options to fulfill a http request
+     */
+    updatePhoneNumberCampaignPublicPhoneNumberCampaignPhoneNumberPutApiRequestOptions(
+        phoneNumber: string,
+        requestBody: PhoneNumberCampaignUpdate,
+    ): ApiRequestOptions;
 
     /**
      * Delete Phone Number Campaign
      * @param phoneNumber
      * @returns PhoneNumberCampaign Successful Response
-     * @throws ApiError
      */
-    public static async deletePhoneNumberCampaignPublicPhoneNumberCampaignPhoneNumberDelete(
+    deletePhoneNumberCampaignPublicPhoneNumberCampaignPhoneNumberDelete(
         phoneNumber: any,
-    ): Promise<PhoneNumberCampaign> {
-        const result = await __request({
-            method: 'DELETE',
-            path: `/phoneNumberCampaign/${phoneNumber}`,
-        });
-        return result.body;
-    }
+    ): Promise<PhoneNumberCampaign>;
+
+    /**
+     * **used to get the request options without making a http request**
+     * Delete Phone Number Campaign
+     * @param phoneNumber
+     * @returns ApiRequestOptions the request options to fulfill a http request
+     */
+    deletePhoneNumberCampaignPublicPhoneNumberCampaignPhoneNumberDeleteApiRequestOptions(
+        phoneNumber: any,
+    ): ApiRequestOptions;
 
 }

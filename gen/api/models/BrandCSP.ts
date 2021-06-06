@@ -1,6 +1,5 @@
-/* istanbul ignore file */
-/* tslint:disable */
 /* eslint-disable */
+
 
 import type { AltBusinessIdType } from './AltBusinessIdType';
 import type { BrandRelationship } from './BrandRelationship';
@@ -93,4 +92,14 @@ export type BrandCSP = {
      * Universal EIN of Brand, Read Only.
      */
     universalEin?: string;
+}
+
+export namespace BrandCSP {
+
+    /**
+     * the discriminator for the model if required for more complex api's
+     */
+    export const discriminator = 'BrandCSP';
+
+
 }

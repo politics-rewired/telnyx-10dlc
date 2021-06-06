@@ -1,6 +1,5 @@
-/* istanbul ignore file */
-/* tslint:disable */
 /* eslint-disable */
+
 
 import type { TaskStatus } from './TaskStatus';
 
@@ -12,4 +11,14 @@ export type AssignmentTaskStatusResponse = {
     status: TaskStatus;
     createdAt?: string;
     updatedAt?: string;
+}
+
+export namespace AssignmentTaskStatusResponse {
+
+    /**
+     * the discriminator for the model if required for more complex api's
+     */
+    export const discriminator = 'AssignmentTaskStatusResponse';
+
+
 }

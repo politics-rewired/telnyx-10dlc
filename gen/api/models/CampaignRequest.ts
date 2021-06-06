@@ -1,6 +1,5 @@
-/* istanbul ignore file */
-/* tslint:disable */
 /* eslint-disable */
+
 
 export type CampaignRequest = {
     /**
@@ -95,4 +94,14 @@ export type CampaignRequest = {
      * Does message content controlled by affiliate marketing other than the brand?
      */
     affiliateMarketing: boolean;
+}
+
+export namespace CampaignRequest {
+
+    /**
+     * the discriminator for the model if required for more complex api's
+     */
+    export const discriminator = 'CampaignRequest';
+
+
 }

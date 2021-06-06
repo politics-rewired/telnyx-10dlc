@@ -1,7 +1,16 @@
-/* istanbul ignore file */
-/* tslint:disable */
 /* eslint-disable */
+
 
 export type PhoneNumberCampaignUpdate = {
     campaignId: string;
+}
+
+export namespace PhoneNumberCampaignUpdate {
+
+    /**
+     * the discriminator for the model if required for more complex api's
+     */
+    export const discriminator = 'PhoneNumberCampaignUpdate';
+
+
 }

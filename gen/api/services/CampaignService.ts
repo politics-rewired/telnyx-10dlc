@@ -1,14 +1,13 @@
-/* istanbul ignore file */
-/* tslint:disable */
 /* eslint-disable */
+
 import type { Campaign } from '../models/Campaign';
 import type { CampaignCSP } from '../models/CampaignCSP';
 import type { CampaignRecordSetCSP } from '../models/CampaignRecordSetCSP';
 import type { CampaignRequest } from '../models/CampaignRequest';
 import type { UpdateCampaign } from '../models/UpdateCampaign';
-import { request as __request } from '../core/request';
+import type { ApiRequestOptions } from '../core/ApiRequestOptions';
 
-export class CampaignService {
+export interface CampaignService {
 
     /**
      * List My Campaigns
@@ -23,9 +22,8 @@ export class CampaignService {
      * @param page
      * @param recordsPerPage
      * @returns CampaignRecordSetCSP Successful Response
-     * @throws ApiError
      */
-    public static async listMyCampaignsCampaignGet(
+    listMyCampaignsCampaignGet(
         brandId?: string,
         status?: string,
         usecase?: string,
@@ -35,41 +33,55 @@ export class CampaignService {
         upstreamCnpId?: string,
         page: number = 1,
         recordsPerPage: number = 10,
-    ): Promise<CampaignRecordSetCSP> {
-        const result = await __request({
-            method: 'GET',
-            path: `/campaign`,
-            query: {
-                'brandId': brandId,
-                'status': status,
-                'usecase': usecase,
-                'vertical': vertical,
-                'resellerId': resellerId,
-                'autoRenewal': autoRenewal,
-                'upstreamCnpId': upstreamCnpId,
-                'page': page,
-                'recordsPerPage': recordsPerPage,
-            },
-        });
-        return result.body;
-    }
+    ): Promise<CampaignRecordSetCSP>;
+
+    /**
+     * **used to get the request options without making a http request**
+     * List My Campaigns
+     * Search my campaigns
+     * @param brandId
+     * @param status
+     * @param usecase
+     * @param vertical
+     * @param resellerId
+     * @param autoRenewal
+     * @param upstreamCnpId
+     * @param page
+     * @param recordsPerPage
+     * @returns ApiRequestOptions the request options to fulfill a http request
+     */
+    listMyCampaignsCampaignGetApiRequestOptions(
+        brandId?: string,
+        status?: string,
+        usecase?: string,
+        vertical?: string,
+        resellerId?: string,
+        autoRenewal?: boolean,
+        upstreamCnpId?: string,
+        page: number = 1,
+        recordsPerPage: number = 10,
+    ): ApiRequestOptions;
 
     /**
      * Get My Campaign
      * Get my campaign details
      * @param campaignId
      * @returns CampaignCSP Successful Response
-     * @throws ApiError
      */
-    public static async getMyCampaignCampaignCampaignIdGet(
+    getMyCampaignCampaignCampaignIdGet(
         campaignId: string,
-    ): Promise<CampaignCSP> {
-        const result = await __request({
-            method: 'GET',
-            path: `/campaign/${campaignId}`,
-        });
-        return result.body;
-    }
+    ): Promise<CampaignCSP>;
+
+    /**
+     * **used to get the request options without making a http request**
+     * Get My Campaign
+     * Get my campaign details
+     * @param campaignId
+     * @returns ApiRequestOptions the request options to fulfill a http request
+     */
+    getMyCampaignCampaignCampaignIdGetApiRequestOptions(
+        campaignId: string,
+    ): ApiRequestOptions;
 
     /**
      * Update My Campaign
@@ -77,105 +89,130 @@ export class CampaignService {
      * @param campaignId
      * @param requestBody
      * @returns Campaign Successful Response
-     * @throws ApiError
      */
-    public static async updateMyCampaignCampaignCampaignIdPut(
+    updateMyCampaignCampaignCampaignIdPut(
         campaignId: string,
         requestBody: UpdateCampaign,
-    ): Promise<Campaign> {
-        const result = await __request({
-            method: 'PUT',
-            path: `/campaign/${campaignId}`,
-            body: requestBody,
-        });
-        return result.body;
-    }
+    ): Promise<Campaign>;
+
+    /**
+     * **used to get the request options without making a http request**
+     * Update My Campaign
+     * Update my campaign properties
+     * @param campaignId
+     * @param requestBody
+     * @returns ApiRequestOptions the request options to fulfill a http request
+     */
+    updateMyCampaignCampaignCampaignIdPutApiRequestOptions(
+        campaignId: string,
+        requestBody: UpdateCampaign,
+    ): ApiRequestOptions;
 
     /**
      * Deactivate My Campaign
      * Deactivate my campaign
      * @param campaignId
      * @returns any Successful Response
-     * @throws ApiError
      */
-    public static async deactivateMyCampaignCampaignCampaignIdDelete(
+    deactivateMyCampaignCampaignCampaignIdDelete(
         campaignId: string,
-    ): Promise<any> {
-        const result = await __request({
-            method: 'DELETE',
-            path: `/campaign/${campaignId}`,
-        });
-        return result.body;
-    }
+    ): Promise<any>;
+
+    /**
+     * **used to get the request options without making a http request**
+     * Deactivate My Campaign
+     * Deactivate my campaign
+     * @param campaignId
+     * @returns ApiRequestOptions the request options to fulfill a http request
+     */
+    deactivateMyCampaignCampaignCampaignIdDeleteApiRequestOptions(
+        campaignId: string,
+    ): ApiRequestOptions;
 
     /**
      * Get My Campaign Mno Metadata
      * Get my campaign MNO metadata
      * @param campaignId
      * @returns any Successful Response
-     * @throws ApiError
      */
-    public static async getMyCampaignMnoMetadataCampaignCampaignIdMnoMetadataGet(
+    getMyCampaignMnoMetadataCampaignCampaignIdMnoMetadataGet(
         campaignId: string,
-    ): Promise<any> {
-        const result = await __request({
-            method: 'GET',
-            path: `/campaign/${campaignId}/mnoMetadata`,
-        });
-        return result.body;
-    }
+    ): Promise<any>;
+
+    /**
+     * **used to get the request options without making a http request**
+     * Get My Campaign Mno Metadata
+     * Get my campaign MNO metadata
+     * @param campaignId
+     * @returns ApiRequestOptions the request options to fulfill a http request
+     */
+    getMyCampaignMnoMetadataCampaignCampaignIdMnoMetadataGetApiRequestOptions(
+        campaignId: string,
+    ): ApiRequestOptions;
 
     /**
      * Get My Campaign Operation Status
      * Get campaign operation status at MNO level
      * @param campaignId
      * @returns any Successful Response
-     * @throws ApiError
      */
-    public static async getMyCampaignOperationStatusCampaignCampaignIdOperationStatusGet(
+    getMyCampaignOperationStatusCampaignCampaignIdOperationStatusGet(
         campaignId: string,
-    ): Promise<any> {
-        const result = await __request({
-            method: 'GET',
-            path: `/campaign/${campaignId}/operationStatus`,
-        });
-        return result.body;
-    }
+    ): Promise<any>;
+
+    /**
+     * **used to get the request options without making a http request**
+     * Get My Campaign Operation Status
+     * Get campaign operation status at MNO level
+     * @param campaignId
+     * @returns ApiRequestOptions the request options to fulfill a http request
+     */
+    getMyCampaignOperationStatusCampaignCampaignIdOperationStatusGetApiRequestOptions(
+        campaignId: string,
+    ): ApiRequestOptions;
 
     /**
      * Submit Campaign
      * Campaign builder Step 2: Create new campaign
      * @param requestBody
      * @returns any Successful Response
-     * @throws ApiError
      */
-    public static async submitCampaignCampaignBuilderPost(
+    submitCampaignCampaignBuilderPost(
         requestBody: CampaignRequest,
-    ): Promise<any> {
-        const result = await __request({
-            method: 'POST',
-            path: `/campaignBuilder`,
-            body: requestBody,
-        });
-        return result.body;
-    }
+    ): Promise<any>;
+
+    /**
+     * **used to get the request options without making a http request**
+     * Submit Campaign
+     * Campaign builder Step 2: Create new campaign
+     * @param requestBody
+     * @returns ApiRequestOptions the request options to fulfill a http request
+     */
+    submitCampaignCampaignBuilderPostApiRequestOptions(
+        requestBody: CampaignRequest,
+    ): ApiRequestOptions;
 
     /**
      * Qualify By Usecase
      * @param usecase
      * @param brandId
      * @returns any Successful Response
-     * @throws ApiError
      */
-    public static async qualifyByUsecaseCampaignBuilderBrandBrandIdUsecaseUsecaseGet(
+    qualifyByUsecaseCampaignBuilderBrandBrandIdUsecaseUsecaseGet(
         usecase: string,
         brandId: string,
-    ): Promise<any> {
-        const result = await __request({
-            method: 'GET',
-            path: `/campaignBuilder/brand/${brandId}/usecase/${usecase}`,
-        });
-        return result.body;
-    }
+    ): Promise<any>;
+
+    /**
+     * **used to get the request options without making a http request**
+     * Qualify By Usecase
+     * @param usecase
+     * @param brandId
+     * @returns ApiRequestOptions the request options to fulfill a http request
+     */
+    qualifyByUsecaseCampaignBuilderBrandBrandIdUsecaseUsecaseGetApiRequestOptions(
+        usecase: string,
+        brandId: string,
+    ): ApiRequestOptions;
 
 }

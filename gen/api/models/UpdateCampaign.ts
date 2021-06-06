@@ -1,6 +1,5 @@
-/* istanbul ignore file */
-/* tslint:disable */
 /* eslint-disable */
+
 
 export type UpdateCampaign = {
     /**
@@ -39,4 +38,14 @@ export type UpdateCampaign = {
      * Help message of the campaign.
      */
     autoRenewal: boolean;
+}
+
+export namespace UpdateCampaign {
+
+    /**
+     * the discriminator for the model if required for more complex api's
+     */
+    export const discriminator = 'UpdateCampaign';
+
+
 }

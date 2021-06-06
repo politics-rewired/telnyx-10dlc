@@ -1,6 +1,5 @@
-/* istanbul ignore file */
-/* tslint:disable */
 /* eslint-disable */
+
 
 import type { AltBusinessIdType2 } from './AltBusinessIdType2';
 import type { BrandRelationship2 } from './BrandRelationship2';
@@ -81,4 +80,14 @@ export type UpdateBrand = {
      */
     altBusinessId?: string;
     altBusinessIdType?: AltBusinessIdType2;
+}
+
+export namespace UpdateBrand {
+
+    /**
+     * the discriminator for the model if required for more complex api's
+     */
+    export const discriminator = 'UpdateBrand';
+
+
 }

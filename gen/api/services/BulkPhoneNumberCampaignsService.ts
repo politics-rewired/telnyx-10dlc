@@ -1,46 +1,50 @@
-/* istanbul ignore file */
-/* tslint:disable */
 /* eslint-disable */
+
 import type { AssignmentTaskStatusResponse } from '../models/AssignmentTaskStatusResponse';
 import type { AssignProfileToCampaignRequest } from '../models/AssignProfileToCampaignRequest';
 import type { AssignProfileToCampaignResponse } from '../models/AssignProfileToCampaignResponse';
 import type { PhoneNumberStatusResponsePaginated } from '../models/PhoneNumberStatusResponsePaginated';
-import { request as __request } from '../core/request';
+import type { ApiRequestOptions } from '../core/ApiRequestOptions';
 
-export class BulkPhoneNumberCampaignsService {
+export interface BulkPhoneNumberCampaignsService {
 
     /**
      * Assign Messaging Profile To Campaign
      * @param requestBody
      * @returns AssignProfileToCampaignResponse Successful Response
-     * @throws ApiError
      */
-    public static async assignMessagingProfileToCampaignPublicPhoneNumberAssignmentByProfilePost(
+    assignMessagingProfileToCampaignPublicPhoneNumberAssignmentByProfilePost(
         requestBody: AssignProfileToCampaignRequest,
-    ): Promise<AssignProfileToCampaignResponse> {
-        const result = await __request({
-            method: 'POST',
-            path: `/public/phoneNumberAssignmentByProfile`,
-            body: requestBody,
-        });
-        return result.body;
-    }
+    ): Promise<AssignProfileToCampaignResponse>;
+
+    /**
+     * **used to get the request options without making a http request**
+     * Assign Messaging Profile To Campaign
+     * @param requestBody
+     * @returns ApiRequestOptions the request options to fulfill a http request
+     */
+    assignMessagingProfileToCampaignPublicPhoneNumberAssignmentByProfilePostApiRequestOptions(
+        requestBody: AssignProfileToCampaignRequest,
+    ): ApiRequestOptions;
 
     /**
      * Get Assignment Task Status
      * @param taskId
      * @returns AssignmentTaskStatusResponse Successful Response
-     * @throws ApiError
      */
-    public static async getAssignmentTaskStatusPublicPhoneNumberAssignmentByProfileTaskIdGet(
+    getAssignmentTaskStatusPublicPhoneNumberAssignmentByProfileTaskIdGet(
         taskId: string,
-    ): Promise<AssignmentTaskStatusResponse> {
-        const result = await __request({
-            method: 'GET',
-            path: `/public/phoneNumberAssignmentByProfile/${taskId}`,
-        });
-        return result.body;
-    }
+    ): Promise<AssignmentTaskStatusResponse>;
+
+    /**
+     * **used to get the request options without making a http request**
+     * Get Assignment Task Status
+     * @param taskId
+     * @returns ApiRequestOptions the request options to fulfill a http request
+     */
+    getAssignmentTaskStatusPublicPhoneNumberAssignmentByProfileTaskIdGetApiRequestOptions(
+        taskId: string,
+    ): ApiRequestOptions;
 
     /**
      * Get Phone Number Status
@@ -48,22 +52,25 @@ export class BulkPhoneNumberCampaignsService {
      * @param recordsPerPage
      * @param page
      * @returns PhoneNumberStatusResponsePaginated Successful Response
-     * @throws ApiError
      */
-    public static async getPhoneNumberStatusPublicPhoneNumberAssignmentByProfileTaskIdPhoneNumbersGet(
+    getPhoneNumberStatusPublicPhoneNumberAssignmentByProfileTaskIdPhoneNumbersGet(
         taskId: string,
         recordsPerPage: any,
         page: any,
-    ): Promise<PhoneNumberStatusResponsePaginated> {
-        const result = await __request({
-            method: 'GET',
-            path: `/public/phoneNumberAssignmentByProfile/${taskId}/phoneNumbers`,
-            query: {
-                'recordsPerPage': recordsPerPage,
-                'page': page,
-            },
-        });
-        return result.body;
-    }
+    ): Promise<PhoneNumberStatusResponsePaginated>;
+
+    /**
+     * **used to get the request options without making a http request**
+     * Get Phone Number Status
+     * @param taskId
+     * @param recordsPerPage
+     * @param page
+     * @returns ApiRequestOptions the request options to fulfill a http request
+     */
+    getPhoneNumberStatusPublicPhoneNumberAssignmentByProfileTaskIdPhoneNumbersGetApiRequestOptions(
+        taskId: string,
+        recordsPerPage: any,
+        page: any,
+    ): ApiRequestOptions;
 
 }

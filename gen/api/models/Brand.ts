@@ -1,6 +1,5 @@
-/* istanbul ignore file */
-/* tslint:disable */
 /* eslint-disable */
+
 
 import type { AltBusinessIdType1 } from './AltBusinessIdType1';
 import type { BrandRelationship1 } from './BrandRelationship1';
@@ -93,4 +92,14 @@ export type Brand = {
      * Universal EIN of Brand, Read Only.
      */
     universalEin?: string;
+}
+
+export namespace Brand {
+
+    /**
+     * the discriminator for the model if required for more complex api's
+     */
+    export const discriminator = 'Brand';
+
+
 }

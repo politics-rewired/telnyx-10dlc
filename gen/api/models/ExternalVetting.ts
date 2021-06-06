@@ -1,6 +1,5 @@
-/* istanbul ignore file */
-/* tslint:disable */
 /* eslint-disable */
+
 
 export type ExternalVetting = {
     /**
@@ -11,4 +10,14 @@ export type ExternalVetting = {
      * Identifies the vetting classification.
      */
     vettingClass?: string;
+}
+
+export namespace ExternalVetting {
+
+    /**
+     * the discriminator for the model if required for more complex api's
+     */
+    export const discriminator = 'ExternalVetting';
+
+
 }

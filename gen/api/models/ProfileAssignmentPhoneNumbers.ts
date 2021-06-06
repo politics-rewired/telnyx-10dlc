@@ -1,6 +1,5 @@
-/* istanbul ignore file */
-/* tslint:disable */
 /* eslint-disable */
+
 
 export type ProfileAssignmentPhoneNumbers = {
     /**
@@ -15,4 +14,14 @@ export type ProfileAssignmentPhoneNumbers = {
      * The status of the associated phone number assignment.
      */
     status: string;
+}
+
+export namespace ProfileAssignmentPhoneNumbers {
+
+    /**
+     * the discriminator for the model if required for more complex api's
+     */
+    export const discriminator = 'ProfileAssignmentPhoneNumbers';
+
+
 }

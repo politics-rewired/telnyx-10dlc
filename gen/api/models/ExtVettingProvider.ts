@@ -1,6 +1,5 @@
-/* istanbul ignore file */
-/* tslint:disable */
 /* eslint-disable */
+
 
 export type ExtVettingProvider = {
     evpId?: string;
@@ -8,4 +7,14 @@ export type ExtVettingProvider = {
     tcrBillable?: boolean;
     vettingClasses?: Array<string>;
     vettingInstruction?: string;
+}
+
+export namespace ExtVettingProvider {
+
+    /**
+     * the discriminator for the model if required for more complex api's
+     */
+    export const discriminator = 'ExtVettingProvider';
+
+
 }
