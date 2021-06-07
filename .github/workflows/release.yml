@@ -46,7 +46,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
       - run: |
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_REPOSITORY_ACCESS_TOKEN }}" >> .npmrc && cat .npmrc && yarn install --verbose
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_REPOSITORY_ACCESS_TOKEN }}" >> .npmrc && yarn install
       - run: yarn build
       # - uses: JS-DevTools/npm-publish@v1
       #   with:
