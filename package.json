@@ -1,6 +1,6 @@
 {
   "name": "@rewired/telnyx-10dlc",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "TypeScript client for Telnyx 10DLC API.",
   "keywords": [
     "telnyx",
