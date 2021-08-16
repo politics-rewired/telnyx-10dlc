@@ -10,7 +10,26 @@ import { request as __request } from '../core/request';
 export class PhoneNumberCampaignsService {
 
     /**
+     * Create New Phone Number Campaign
+     * Assign an individual phone number to campaign.
+     * @param requestBody
+     * @returns PhoneNumberCampaign Successful Response
+     * @throws ApiError
+     */
+    public static async createNewPhoneNumberCampaignPublicPhoneNumberCampaignPost(
+        requestBody: PhoneNumberCampaignCreate,
+    ): Promise<PhoneNumberCampaign> {
+        const result = await __request({
+            method: 'POST',
+            path: `/phoneNumberCampaign`,
+            body: requestBody,
+        });
+        return result.body;
+    }
+
+    /**
      * Retrieve All Phone Number Campaigns
+     * Retrieve all of your organization's phone number/campaign assignments.
      * @param recordsPerPage
      * @param page
      * @returns PhoneNumberCampaignPaginated Successful Response
@@ -32,24 +51,8 @@ export class PhoneNumberCampaignsService {
     }
 
     /**
-     * Create New Phone Number Campaign
-     * @param requestBody
-     * @returns PhoneNumberCampaign Successful Response
-     * @throws ApiError
-     */
-    public static async createNewPhoneNumberCampaignPublicPhoneNumberCampaignPost(
-        requestBody: PhoneNumberCampaignCreate,
-    ): Promise<PhoneNumberCampaign> {
-        const result = await __request({
-            method: 'POST',
-            path: `/phoneNumberCampaign`,
-            body: requestBody,
-        });
-        return result.body;
-    }
-
-    /**
      * Get Single Phone Number Campaign
+     * Retrieve an individual phone number/campaign assignment by `phoneNumber`.
      * @param phoneNumber
      * @returns PhoneNumberCampaign Successful Response
      * @throws ApiError
@@ -66,6 +69,7 @@ export class PhoneNumberCampaignsService {
 
     /**
      * Update Phone Number Campaign
+     * This endpoint allows you to assign a different campaign to a supplied `phoneNumber`.
      * @param phoneNumber
      * @param requestBody
      * @returns PhoneNumberCampaign Successful Response
@@ -85,6 +89,7 @@ export class PhoneNumberCampaignsService {
 
     /**
      * Delete Phone Number Campaign
+     * This endpoint allows you to remove a campaign assignment from the supplied `phoneNumber`.
      * @param phoneNumber
      * @returns PhoneNumberCampaign Successful Response
      * @throws ApiError

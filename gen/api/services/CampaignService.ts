@@ -11,8 +11,26 @@ import { request as __request } from '../core/request';
 export class CampaignService {
 
     /**
+     * Create Campaign
+     * Before creating a campaign, use the [Qualify By Usecase endpoint](https://developers.telnyx.com/docs/api/v2/10dlc/Campaign#qualify_by_usecase_campaignBuilder_brand__brand_id__usecase__usecase__get) to ensure that the brand you want to assign a new campaign to is qualified for the desired use case of that campaign. **Please note:** After campaign creation, you'll only be able to edit the campaign's sample messages. Creating a campaign will entail an upfront, non-refundable three month's cost that will depend on the campaign's use case ([see 10DLC Costs section for details](https://developers.telnyx.com/docs/api/v2/10dlc)).
+     * @param requestBody
+     * @returns any Successful Response
+     * @throws ApiError
+     */
+    public static async submitCampaignCampaignBuilderPost(
+        requestBody: CampaignRequest,
+    ): Promise<any> {
+        const result = await __request({
+            method: 'POST',
+            path: `/campaignBuilder`,
+            body: requestBody,
+        });
+        return result.body;
+    }
+
+    /**
      * List My Campaigns
-     * Search my campaigns
+     * Retrieve a list of campaigns associated with a supplied `brandId`.
      * @param brandId
      * @param status
      * @param usecase
@@ -26,7 +44,7 @@ export class CampaignService {
      * @throws ApiError
      */
     public static async listMyCampaignsCampaignGet(
-        brandId?: string,
+        brandId: string,
         status?: string,
         usecase?: string,
         vertical?: string,
@@ -56,7 +74,7 @@ export class CampaignService {
 
     /**
      * Get My Campaign
-     * Get my campaign details
+     * Retrieve campaign details by `campaignId`.
      * @param campaignId
      * @returns CampaignCSP Successful Response
      * @throws ApiError
@@ -73,7 +91,7 @@ export class CampaignService {
 
     /**
      * Update My Campaign
-     * Update my campaign properties
+     * Update a campaign's properties by `campaignId`. **Please note:** only sample messages are editable.
      * @param campaignId
      * @param requestBody
      * @returns Campaign Successful Response
@@ -93,7 +111,7 @@ export class CampaignService {
 
     /**
      * Deactivate My Campaign
-     * Deactivate my campaign
+     * Campaign deactivation is not currently available, but will be available soon.
      * @param campaignId
      * @returns any Successful Response
      * @throws ApiError
@@ -109,8 +127,8 @@ export class CampaignService {
     }
 
     /**
-     * Get My Campaign Mno Metadata
-     * Get my campaign MNO metadata
+     * Get Campaign MNO Metadata
+     * Retrieve a campaign's Mobile Network Operator (MNO) metadata.
      * @param campaignId
      * @returns any Successful Response
      * @throws ApiError
@@ -126,8 +144,8 @@ export class CampaignService {
     }
 
     /**
-     * Get My Campaign Operation Status
-     * Get campaign operation status at MNO level
+     * Get Campaign's Operation Status
+     * Retrieve campaign's operation status at MNO level.
      * @param campaignId
      * @returns any Successful Response
      * @throws ApiError
@@ -143,25 +161,8 @@ export class CampaignService {
     }
 
     /**
-     * Submit Campaign
-     * Campaign builder Step 2: Create new campaign
-     * @param requestBody
-     * @returns any Successful Response
-     * @throws ApiError
-     */
-    public static async submitCampaignCampaignBuilderPost(
-        requestBody: CampaignRequest,
-    ): Promise<any> {
-        const result = await __request({
-            method: 'POST',
-            path: `/campaignBuilder`,
-            body: requestBody,
-        });
-        return result.body;
-    }
-
-    /**
      * Qualify By Usecase
+     * This endpoint allows you to see whether or not the supplied brand is suitable for your desired campaign use case.
      * @param usecase
      * @param brandId
      * @returns any Successful Response

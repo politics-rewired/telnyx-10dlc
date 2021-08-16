@@ -11,6 +11,7 @@ export class BulkPhoneNumberCampaignsService {
 
     /**
      * Assign Messaging Profile To Campaign
+     * This endpoint allows you to link all phone numbers associated with a Messaging Profile to a campaign. **Please note:** if you want to assign phone numbers to a campaign that you did not create with Telnyx 10DLC services, this endpoint allows that provided that you've shared the campaign with Telnyx. In this case, only provide the parameter, `tcrCampaignId`, and not `campaignId`. In all other cases (where the campaign you're assigning was created with Telnyx 10DLC services), only provide `campaignId`, not `tcrCampaignId`.
      * @param requestBody
      * @returns AssignProfileToCampaignResponse Successful Response
      * @throws ApiError
@@ -28,6 +29,7 @@ export class BulkPhoneNumberCampaignsService {
 
     /**
      * Get Assignment Task Status
+     * Check the status of the task associated with assigning all phone numbers on a messaging profile to a campaign by `taskId`.
      * @param taskId
      * @returns AssignmentTaskStatusResponse Successful Response
      * @throws ApiError
@@ -44,6 +46,7 @@ export class BulkPhoneNumberCampaignsService {
 
     /**
      * Get Phone Number Status
+     * Check the status of the individual phone number/campaign assignments associated with the supplied `taskId`.
      * @param taskId
      * @param recordsPerPage
      * @param page

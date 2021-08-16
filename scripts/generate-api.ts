@@ -1,8 +1,8 @@
 import * as OpenAPI from "openapi-typescript-codegen";
 
-// Fetched 2021-06-06
+// Fetched 2021-08-16
 const input =
-  "https://assets.ctfassets.net/4b49ta6b3nwj/wPFfqv5zEYGYUQJb202Ec/0b37c4ff05d67b939717d7054eaf3c58/telnyx_10dlc_api.json";
+  "https://assets.ctfassets.net/4b49ta6b3nwj/wPFfqv5zEYGYUQJb202Ec/0ffecd1c98f100c0d55da92e4ccc490e/telnyx_10dlc_api.json";
 
 OpenAPI.generate({
   httpClient: OpenAPI.HttpClient.NODE,
